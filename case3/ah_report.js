@@ -28,14 +28,32 @@
       
 */
 
+// step 6
+var donationTotal = 0;
 
+// step 7
+donors.forEach(calcSum);
 
+// step 8
+var summaryTable = "<table><tr><th> Donors </th><td>" + donors.length + "</td></tr> <tr><th>Total Donations</th><td>$" + donationTotal.toLocaleString() + "</td></tr></table>"; 
 
+// step 9
+document.getElementById("donationSummary").innerHTML = summaryTable;
 
+// step 10
+var majorDonors = donors.filter(findMajorDonors);
 
+// step 11
+majorDonors.sort(donorSortDescending);
 
+// step 12
+var donorTable = "<table> <caption>Major Donors</caption> <tr><th>Donation</th><th>Donor ID</th> <th>Date</th><th>Name</th><th>Address</th> <th>Phone</th><th>E-mail</th> </tr>";
+ 
+majorDonors.forEach(writeDonorRow);
+ 
+donorTable += "</table>";
 
-
+document.getElementById("donorTable").innerHTML = donorTable;
 
 function calcSum(donorAmt) {
    donationTotal += donorAmt[9];
